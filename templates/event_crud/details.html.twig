@@ -1,18 +1,21 @@
 {% extends "base.html.twig" %}
 
 {% block body %} 
-<h1>here are some details about the {{ event.name }}</h1>
+<h1 class="text-white text-center m-4">More about the {{ event.name|title }}</h1>
 
-<div class="card mb-3">
-  <img src="{{asset('picture/' ~ event.picture)}}"  class="card-img-top" alt="...">
+<div class="card mb-3 border-0" style="max-width: 600px; background:#283048 ">
+  <img src="{{asset('picture/' ~ event.picture)}}"  class="card-img-top text-white" alt="{{ event.name|title }}">
   <div class="card-body">
-    <h5 class="card-title"></h5>
-    <p class="card-text">{{ event.description }}</p>
-    <p class="card-text">{{ event.date|date("D, d F Y g:i A") }}</p>
-    <p class="card-text">Location: {{ event.city }}</p>
-    <p class="card-text"><small class="text-muted">Phone Number: +{{ event.phoneNumber }}</small></p>
-    <p class="card-text"><small class="text-muted">Category of an event: {{ event.type }}</small></p>
+    <h5 class="card-title text-white">{{ event.name|title }} in {{ event.city|title }}</h5>
+    <p class="card-text text-white">{{ event.description }}</p>
+    <p class="card-text text-white">{{ event.date|date("D, d F Y g:i A") }}</p>
+    <p class="card-text text-white">Location: {{ event.city|title }}</p>
 
+    <p class="card-text"><small class="text-muted">Tickets available: {{ event.capacity }}</small></p>
+    <p class="card-text"><small class="text-muted">Category of an event: {{ event.type }}</small></p>
+    <p class="card-text"><small class="text-muted">Phone Number: +{{ event.phoneNumber }}</small></p>
+    <p class="card-text"><small class="text-muted">Email: {{ event.email }}</small></p>
+    <p class="card-text"><small class="text-muted">Go to official Webpage of <a href="{{ event.url }}">{{event.name}} </a></small></p>
   </div>
 </div>
 <a href="{{path('index')}}" class="btn btn-primary">Go back</a>

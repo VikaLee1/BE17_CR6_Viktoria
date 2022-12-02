@@ -1,0 +1,10 @@
+body {
+    background-image: linear-gradient(#283048, #859398);
+}
+
+.createStyle {
+    width: 50px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}

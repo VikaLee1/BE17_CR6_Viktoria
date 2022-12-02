@@ -68,7 +68,8 @@ class EventCrudController extends AbstractController
         }
         
         return $this->render('event_crud/edit.html.twig', [
-            "form" => $form->createView()
+            "form" => $form->createView(),
+            "event" => $event
         ]);
     }
 

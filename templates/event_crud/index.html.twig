@@ -2,19 +2,17 @@
 
 {% block title %}All Events{% endblock %}
 
-{% block stylesheets %}
-{# <link rel="stylesheet" href="{{asset("css/style.css")}}"> #}
-{% endblock %}
-
+  {% block stylesheets %}
+            <link rel="stylesheet" href="{{asset("css/events.css")}}">
+        {% endblock %}
 {% block body %}
-<h1>All events are shown here</h1>
 
-<h6 class="title text-center header-title">Upcoming events</h6>
+<h1 class="title text-center text-white mt-4">Upcoming events</h1>
 
 <div class="container">
     <div class="row row-cols-3">
         {% for event in events %}
-        <div class="card" style="width: 18rem;">
+        {# <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <img src="{{asset('picture/' ~ event.picture)}}" alt="" width="100%">
                 <h5 class="card-title">{{ event.name }}</h5>
@@ -23,7 +21,32 @@
                 <a href="edit/{{ event.id }}" class="btn btn-warning">Edit</a>
                 <a href="delete/{{ event.id }}" class="btn btn-danger">Delete</a>
             </div>
+        </div> #}
+
+
+ <div class="card border-0 " >
+            <div class="overlay-img ">
+                        <img src="{{asset('picture/' ~ event.picture)}}" class="images">
+
+                        <div class="overlay text-center">
+                            <h1 class="title text-center text-white">{{ event.name|title}}</h1>
+                            <h6 class="subtitle">{{ event.description }}</h6>
+                            <div class="card-info">
+                                <p>Date: </p>
+                                <p>{{ event.date|date("d F Y ") }}</p>
+                            </div>
+                            <a href="details/{{ event.id }}" class="btn btn-theme-color">Details</a>
+                            <a href="edit/{{ event.id }}" class="btn btn-theme-color ">Edit</a>
+                            <a href="delete/{{ event.id }}" class="btn btn-theme-color">Delete</a>
+                            
+
+                        </div>
+                    </div>
         </div>
+
+
+
+
          {% else %}
            <h3 class="text-center">There are no upcoming events</h3>
         {% endfor %}
