@@ -97,14 +97,45 @@ class EventCrudController extends AbstractController
     }
 
 // filter
-// #[Route('/filter/{type}', name: 'filter-event')]
-// public function filterAction(ManagerRegistry $doctrine, $id): Response
-// {
+#[Route('/music', name: 'filter-event1')]
+public function filterAction1(ManagerRegistry $doctrine): Response
+{
+    $musicEvents=$doctrine->getRepository(Event:: class)->findBy(array('type'=>'music'));
    
-//     $repositary=$doctrine->getRepository(Event::class)->find($id);
-//     $event=$repositary->findBy(['type'=>'music']);
-//     return $this->redirectToRoute('index', [
-//         "events"=>$event,
-//     ]);
-// } 
+    return $this->render('event_crud/music.html.twig', [
+       "events"=>$musicEvents
+    ]);
+} 
+
+
+#[Route('/sport', name: 'filter-event2')]
+public function filterAction2(ManagerRegistry $doctrine): Response
+{
+    $sportEvents=$doctrine->getRepository(Event:: class)->findBy(array('type'=>'sport'));
+   
+    return $this->render('event_crud/sport.html.twig', [
+       "events"=>$sportEvents
+    ]);
+} 
+
+#[Route('/movie', name: 'filter-event3')]
+public function filterAction3(ManagerRegistry $doctrine): Response
+{
+    $movieEvents=$doctrine->getRepository(Event:: class)->findBy(array('type'=>'movie'));
+   
+    return $this->render('event_crud/movie.html.twig', [
+       "events"=>$movieEvents
+    ]);
+} 
+
+#[Route('/miscellaneous', name: 'filter-event4')]
+public function filterAction4(ManagerRegistry $doctrine): Response
+{
+    $difEvents=$doctrine->getRepository(Event:: class)->findBy(array('type'=>'miscellaneous'));
+   
+    return $this->render('event_crud/miscellaneous.html.twig', [
+       "events"=>$difEvents
+    ]);
+} 
+
 }

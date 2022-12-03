@@ -9,18 +9,18 @@
 
 <fieldset>
 <div class="card mb-3 border-0 card1" style="max-width: 600px;">
-  <img src="{{asset('picture/' ~ event.picture)}}"  class="card-img-top text-white" alt="{{ event.name|title }}">
+  <img src="{{asset(event.picture)}}"  class="card-img-top text-white" alt="{{ event.name|title }}">
   <div class="card-body">
     <h5 class="card-title text-white">{{ event.name|title }} in {{ event.city|title }}</h5>
     <p class="card-text text-white">{{ event.description }}</p>
     <p class="card-text text-white">{{ event.date|date("D, d F Y g:i A") }}</p>
     <p class="card-text text-white">Location: {{ event.city|title }}</p>
 
-    <p class="card-text"><small class="text-muted">Tickets available: {{ event.capacity }}</small></p>
-    <p class="card-text"><small class="text-muted">Category of an event: {{ event.type }}</small></p>
-    <p class="card-text"><small class="text-muted">Phone Number: +{{ event.phoneNumber }}</small></p>
-    <p class="card-text"><small class="text-muted">Email: {{ event.email }}</small></p>
-    <p class="card-text"><small class="text-muted">Go to official Webpage of <a href="{{ event.url }}">{{event.name}} </a></small></p>
+    <p class="card-text"><small class="text-white">Tickets available: {{ event.capacity }}</small></p>
+    <p class="card-text"><small class="text-white">Category of an event: {{ event.type }}</small></p>
+    <p class="card-text"><small class="text-white">Phone Number: +{{ event.phoneNumber }}</small></p>
+    <p class="card-text"><small class="text-white">Email: {{ event.email }}</small></p>
+    <p class="card-text"><small class="text-white">Go to official Webpage of <a href="{{ event.url }}">{{event.name}} </a></small></p>
   </div>
 </div>
 
