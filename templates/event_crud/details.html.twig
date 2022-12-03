@@ -1,9 +1,14 @@
 {% extends "base.html.twig" %}
 
+  {% block stylesheets %}
+            <link rel="stylesheet" href="{{asset("css/createStyle.css")}}">
+        {% endblock %}
+
 {% block body %} 
 <h1 class="text-white text-center m-4">More about the {{ event.name|title }}</h1>
 
-<div class="card mb-3 border-0" style="max-width: 600px; background:#283048 ">
+<fieldset>
+<div class="card mb-3 border-0 card1" style="max-width: 600px;">
   <img src="{{asset('picture/' ~ event.picture)}}"  class="card-img-top text-white" alt="{{ event.name|title }}">
   <div class="card-body">
     <h5 class="card-title text-white">{{ event.name|title }} in {{ event.city|title }}</h5>
@@ -18,5 +23,7 @@
     <p class="card-text"><small class="text-muted">Go to official Webpage of <a href="{{ event.url }}">{{event.name}} </a></small></p>
   </div>
 </div>
+
+</fieldset>
 <a href="{{path('index')}}" class="btn btn-primary">Go back</a>
 {% endblock %}

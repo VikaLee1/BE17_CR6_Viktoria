@@ -95,4 +95,16 @@ class EventCrudController extends AbstractController
         return $this->redirectToRoute('index', [
         ]);
     }
+
+// filter
+// #[Route('/filter/{type}', name: 'filter-event')]
+// public function filterAction(ManagerRegistry $doctrine, $id): Response
+// {
+   
+//     $repositary=$doctrine->getRepository(Event::class)->find($id);
+//     $event=$repositary->findBy(['type'=>'music']);
+//     return $this->redirectToRoute('index', [
+//         "events"=>$event,
+//     ]);
+// } 
 }

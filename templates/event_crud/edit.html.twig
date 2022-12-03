@@ -4,11 +4,21 @@
         {% endblock %}
 {% block body %}
 
+
 <div class="container createStyle">
-<h1 class="text-center m-4">Edit a record of an {{event.name}}</h1>
+<h1 class="text-center m-4 text-white">Edit a record of an {{event.name}}</h1>
+<div class="form-control">
 {{ form_start(form) }}
     {{ form_widget(form) }}
 {{ form_end(form) }}
+  <div class="form-error">
+        {{ form_errors(form) }}
+    </div>
 </div>
+
+
+<a href="{{path('index')}}" class="btn btn-primary mt-4">Go back</a>
+</div>
+
 {% endblock %}
 
